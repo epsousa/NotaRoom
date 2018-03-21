@@ -10,7 +10,7 @@ import android.arch.persistence.room.PrimaryKey
 @Entity(tableName = "nota")
 data class Nota(
         @PrimaryKey(autoGenerate = true)
-        val id: Int?,
+        var id: Int?,
         var descricacao: String
 ) {
     constructor():this(null,"")

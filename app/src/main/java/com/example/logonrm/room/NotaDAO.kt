@@ -1,5 +1,6 @@
 package com.example.logonrm.room
 
+import android.arch.lifecycle.LiveData
 import android.arch.persistence.room.*
 
 /**
@@ -19,6 +20,6 @@ interface NotaDAO {
     fun deletar(nota: Nota)
 
     @Query("SELECT * FROM NOTA")
-    fun buscarTodos(): List<Nota>
+    fun buscarTodos(): LiveData<List<Nota>>
 
 }
