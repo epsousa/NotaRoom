@@ -23,6 +23,8 @@ class NotaRepository(application: Application) {
 
     fun criar(nota: Nota) {
         insertAsyncTask(notaDao)
+                .execute(nota)
+
     }
 
     private class insertAsyncTask(private val mAsyncTaskDao: NotaDAO?)
