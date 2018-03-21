@@ -2,6 +2,7 @@ package com.example.logonrm.room
 
 import android.app.Application
 import android.arch.lifecycle.LiveData
+import android.os.AsyncTask
 
 /**
  * Created by logonrm on 20/03/2018.
@@ -20,5 +21,16 @@ class NotaRepository(application: Application) {
         notas = notaDao?.buscarTodos()
     }
 
+    fun criar(nota: Nota) {
+        insertAsyncTask(notaDao)
+    }
 
+    private class insertAsyncTask(private val mAsyncTaskDao: NotaDAO?)
+        : AsyncTask<Nota, Void, Void>() {
+
+        override fun doInBackground(vararg params: Nota): Void? {
+            mAsyncTaskDao?.criar(params[0])
+            return null
+        }
+    }
 }
